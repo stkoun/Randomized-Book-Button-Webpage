@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--author:Tasia hehe
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Button</title>
+</head>
+<body style="background-image: url('books.jpg');">
+    <h1 id="heading" style="font: 200; color:beige; font-family: Veranda; text-align: center;">Press this button for a book title!</h1>
+    
+    <button style="background-color: cadetblue; display: block; margin: 0 auto; width:200px; height:100px;" 
+     
+        onclick="doSomething()">
+        <p id="button1">button</p>
+    <script>
+        let bookIndex = 0;
+        const books = [
+            "The Bell Jar - Sylvia Plath",
+            "Notes from Underground - Fyodor Dostoevsky",
+            "White Nights - Fyodor Dostoevsky",
+            "The Secret History - Donna Tartt",
+            "The Stranger - Albert Camus",
+            "The Picture of Dorian Gray - Oscar Wilde"
+        ];
+
+        const colors = ["#FFCAF3", "#4682B4", "#CAFFF2", "#FFD700"];
+        const fonts = ["Arial", "Georgia", "Times New Roman", "Courier New"];
+        let colorIndex = 0;
+        let fontIndex = 0;
+
+        function doSomething(){
+            document.getElementById("button1").innerHTML = books[bookIndex];
+            bookIndex = (bookIndex + 1) % books.length;
+            const heading = document.getElementById("heading");
+            heading.style.color = colors[colorIndex];
+            heading.style.fontFamily = fonts[fontIndex];
+
+            
+            colorIndex = (colorIndex + 1) % colors.length;
+            fontIndex = (fontIndex + 1) % fonts.length;
+        }
+        </script>
+</body>
+</html>
